@@ -1,0 +1,42 @@
+{% extends 'base.html' %} {% block content %} {% load static %}
+<span style="display: none;">{% block title %} Home {% endblock title %}</span>
+<!-- <div class="md:w-[60%] m-auto">
+    <div class="min-h-[100px] col-span-2 border-[1px] border-solid">
+        <h1 class=""><span class="text-3xl">&#9997</span> Welcome To Home Page</h1>
+    </div>
+    <div class="min-h-[100px] border-[1px] border-solid"></div>
+    <div class="min-h-[100px] border-[1px] border-solid"></div>
+</div> -->
+<div class="p-[1.4rem] mt-[1.3rem] lg:w-[57%] lg:m-auto">
+    <section class=" ">
+        <h1 style="font-family: Cormorant Garamond, Times, serif; color: rgb(35 23 74);" class="text-4xl mb-[1rem]  font-semibold text-left"> <span>&#128075</span> Hi! My Name is Abdo</h1>
+        <hr class="mb-[2rem]">
+        <div style="font-family: Inter, sans-serif; line-height: 26px;" class=" border-none">
+            <p class="text-[1rem] mb-[1.5rem] dark:text-lime-50">The company itself is a very successful company. Rejecting the gentleness of the truth, as if he had been truly chosen, they do not know how to choose him from his flattery, he will rebuke the said pleasures and the like by any reason!</p>
+        </div>
+    </section>
+</div>
+
+<div class="p-[1.4rem] mt-[1.3rem] lg:w-[57%] lg:p-[1rem] lg:m-auto">
+    <h2 class="text-3xl font-semibold latest-posts dark:text-abdo-color-light">Latest Posts</h2>
+    <hr style="background: rgb(35, 23, 74);" class="mt-2 dark:text-abdo-color">
+    <div class="lg:w-[100%] lg:mt-[4rem] lg:m-auto">
+        <div hx-boost="true">
+            {% for post in posts %}
+              <div class="mb-5 border-b-[2px] pb-6 flex items-center gap-2">
+                <span class="text-3xl">&#9997</span>
+                <a href="{{post.get_absolute_url}}">
+                  <h2 style="font-family: Cormorant Garamond, Times, serif;" class="text-[1.4rem] pb-3  text-abdo-color-dark dark:text-lime-50">{{post.title}}</h2>
+                  <div class="mt-2">
+                    <p class="text-sm font-bold text-gray-600">{{post.updated_on|date}}</p>
+                  </div>
+                </a>
+                
+              </div>
+              
+            {% endfor %}
+        </div>
+    </div>
+</div>
+
+{% endblock content %}

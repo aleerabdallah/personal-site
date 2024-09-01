@@ -1,0 +1,9 @@
+
+# Things to ignore for now
+venv/
+
+
+
+
+
+db.sqlite3

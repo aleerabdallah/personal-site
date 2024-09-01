@@ -1,0 +1,58 @@
+{% extends 'base.html' %} {% block content %} {% load static %}
+{% load humanize %}
+
+<section id="posts_sidebar" class="w-[80%] m-auto">
+  
+  <span style="display: none;">{% block title %} Blog {% endblock %}</span>
+  <!-- imperfect-coder -->
+  <div class="lg:w-[65%] w-full mb-[1rem]">
+    <h2 class="text-3xl">BLOG</h2>
+    <p class="mt-[2rem] text-abdo-color" style="font-family: Roboto, sans-serif;">It is very important for the customer to pay attention to the adipiscing process. Ours, indeed in? From the way we lead him, he is expedient, with the pleasure of life and flight, who here is something of the kind, rather than the labor of refusing us.</p>
+  </div>
+
+  <hr class="mb-12">
+
+  <div class="grid md:grid-cols-3 grid-cols-1 lg:gap-20 md:gap-8 gap-y-10"> 
+    <!-- POSTS -->
+    
+    <div class="col-span-2">
+      {% for post in posts %}
+
+      <article class="mb-6 border-b-[2px] pb-3" hx-boost="true">
+        <a href="{{post.get_absolute_url}}">
+          <h2 style="font-family: Cormorant Garamond, Times, serif;" class="md:text-2xl lg:text-3xl pb-3 font-bold">{{post.title}}</h2>
+          <p class="text-abdo-color">{{post.description | truncatewords:40}}</p>
+          <div class="mt-4">
+            <p class="text-sm font-bold text-gray-600 flex items-center"><span> <img src="{% static 'play/images/icons8-date-48.png' %}" alt="" class="w-[30px]"> </span> {{post.updated_on | date}}</p>
+          </div>
+        </a>
+      </article>
+      {% endfor %}
+    </div>
+
+    <!-- RECENT POSTS -->
+    <div class="  w-full h-[80vh]" hx-boost="true">
+      <!-- <h2 class="text-3xl font-bold">Recent Posts</h2>
+      <div>
+        <h2>Recent Posts</h2>
+      </div> -->
+      <form hx-post="{% url 'blog' %}" hx-target="#message" hx-swap="innerHTML" class="border-solid border-1 border-red-400 flex flex-col gap-3">
+        <h1 class="w-[100%]">Notify Me!</h1>
+        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Accusantium totam dolores libero quo odio? Minus explicabo voluptate alias.</p>
+        <div>
+          <div>
+            <input type="email" name="email" placeholder="Email" class="w-[100%] p-[10px]">
+          </div>
+          <div>
+            <input type="submit" value="Subscribe" style="cursor: pointer;" class="w-[100%] p-[10px] border-[1px] border-amber-300 mt-3 text-red-950">
+          </div>
+          <div id="message" class="bg-red min-h-2"></div>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  
+</section>
+
+{% endblock content %}
