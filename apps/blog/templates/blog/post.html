@@ -30,7 +30,7 @@
       <p class="mb-5 md:text-3xl lg:text-xl lg:font-sans lg:font-semibold dark:text-lime-50">Table of Contents</p>
       <menu class="pl-[3rem] md:pl-[3rem] lg:pl-0">
         {% for heading in toc_links %}
-        <li class="p-0 hover:bg-slate-800 hover:text-white border-1 rounded-[10px]"><a href="#{{heading.id}}" class="block w-[100%] lg:text-[14px] lg:mb-3 dark:text-lime-50">{{heading.text}}</a></li>
+        <li class="p-0 hover:bg-slate-800 hover:text-white border-1 rounded-[10px]"><a href="#{{heading.id}}" class="block w-[100%] lg:text-[14px] lg:mb-3 text-black dark:text-lime-50">{{heading.text}}</a></li>
         {% endfor %}
       </menu>
     {% else %}
@@ -70,7 +70,7 @@
           <div class="mb-5 border-b-[2px] pb-6">
             <a href="{{related_post.get_absolute_url}}">
               <h2 style="font-family: Cormorant Garamond, Times, serif;" class="text-[1.7rem] pb-3  text-abdo-color-dark dark:text-lime-50">{{related_post.title}}</h2>
-              <p style="font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;" class="text-abdo-color  text-abdo-color-light">{{related_post.description}}</p>
+              <p style="font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;" class="text-abdo-color">{{related_post.description}}</p>
             </a>
             <div class="mt-4">
               <p class="text-sm font-bold text-gray-600">{{post.updated_on|naturalday}}</p>
