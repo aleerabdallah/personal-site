@@ -55,7 +55,7 @@ class Post(models.Model):
 
     title = models.CharField(max_length=200, unique=True)
     slug = models.SlugField(null=True, blank=True, unique=True, max_length=200)
-    author = models.ManyToManyField(settings.AUTH_USER_MODEL, related_name="posts")
+    author = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.DO_NOTHING, related_name="posts")
     category = models.ForeignKey(Category, on_delete=models.DO_NOTHING, related_name="posts")
     tags = models.ManyToManyField(Tag, related_name="posts")
     image = models.ImageField(null=True, blank=True, upload_to="Techbros/Post_Thumbnails")
@@ -78,8 +78,8 @@ class Post(models.Model):
             self.slug = slugify(self.title)
         return super().save(*args, **kwargs)
     
-    # def get_absolute_url(self):
-    #     return reverse('post')
+    def get_absolute_url(self):
+        return reverse('post_detail', kwargs={'slug': self.slug})
 
     @property
     def get_image_url(self):

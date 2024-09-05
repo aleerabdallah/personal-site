@@ -5,6 +5,7 @@
 
 <span style="display: none;">{% block title %} {{post.title}} {% endblock title %}</span>
 
+
 <article class="grid grid-cols-1 lg:grid lg:grid-cols-6 gap-4 lg:relative">
   <!-- TITLE AND INFO -->
   <div class="px-[1rem] col-span-7 lg:col-start-2 lg:col-span-4 md:col-start-2 md:col-span-4 lg:ml-[5rem] lg:pr-[4rem]">
@@ -18,9 +19,9 @@
         <span class="text-sm font-light">AUTHOR</span>  <span class="font-bold">{{post.author}}</span>
       </div> 
     <hr class="m-[15px] ml-0 mt-[15px] border-1.9 mb-2 md:mb-0 lg:border-gray-400">
-    <!-- <div class="image-wrapper rounded-md">
+    <div class="image-wrapper rounded-md">
       <img src="{{post.get_image_url}}" class="img rounded-[15px]" />
-    </div> -->
+    </div>
   </div>
 
   <!-- TOC lg:border-r-[1px] lg:border-x-gray-400 lg:border-solid-->
@@ -41,19 +42,30 @@
   <!-- POST CONTENT -->
   <div class="px-[1rem] col-start-2 col-end-6 lg:pl-[6rem] lg:pr-[4rem] lg:row-span-2 lg:text-lg dark:text-abdo-color-light">
     <p  class="mb-[1.5em] font-mono sm:text-2xl md:text-3xl lg:text-4xl text-abdo-color">{{post.body|safe}}</p>
-    <div class="mt-[6rem]">
+    <div class="mt-[1rem]">
       <!-- SUBSCRIPTION SECTION -->
-      <div class="border-2 border-slate-400 mb-[2em]">
-        <form action="">
+      <div class="border-2 border-slate-400 mb-[8rem] rounded-md" style="background-color: #f7cbbfdc;">
+        <!-- style="background-color: #f7f6f6;" -->
+        <form action="" method="post" class="mt-[3rem]">
           <div>
-            <input type="email" name="email" id="">
-            <button type="submit">Subscribe</button>
+            <p class="text-center text-2xl font-bold">Subscribe to weekly newsletter</p>
+          </div>
+          <div class="flex justify-center items-center mt-10 gap-5">
+            <div class="w-[50%]">
+              <input name="email" placeholder="Enter your email" class="bg-white w-[100%] py-2 pl-4 border-1 rounded-[3px]"/>
+            </div>
+            <div class="w-[25%] flex justify-center items-center" style="background-color: #23174a; border: 1px solid #23174a; border-radius: 3px;" >
+              <button type="submit" class="w-[100%] py-2 text-white">Subscribe</button>
+            </div>
+          </div>
+          <div class="mt-4 mb-5">
+            <p class="text-center">No spam</p>
           </div>
         </form>
       </div>
       <h3 class="font-bold text-[1.8rem] related-posts dark:text-lime-50">Related Posts</h3>
-      <hr class="mb-7 mt-3 bg-blue-700">
-      <div hx-boost="true">
+      <hr class="mt-3 bg-blue-700">
+      <div hx-boost="true" class="mt-9">
         {% for related_post in related_posts %}
           <div class="mb-5 border-b-[2px] pb-6">
             <a href="{{related_post.get_absolute_url}}">

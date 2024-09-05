@@ -1,7 +1,7 @@
 from django.contrib import admin
 from . models import Post, Category, Tag
-# from unfold.admin import ModelAdmin
-# from unfold.contrib.forms.widgets import WysiwygWidget, ArrayWidget
+from unfold.admin import ModelAdmin
+from unfold.contrib.forms.widgets import WysiwygWidget, ArrayWidget
 from django.utils.html import format_html
 from django.db import models
 
