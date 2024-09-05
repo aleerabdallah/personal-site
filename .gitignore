@@ -2,8 +2,11 @@
 # Things to ignore for now
 venv/
 Techbros/
+Techbros/
 
-Techbros
+tailwind.config.js
+tailwindcss
 
 
 db.sqlite3
+
