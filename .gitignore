@@ -1,9 +1,9 @@
 
 # Things to ignore for now
 venv/
+Techbros/
 
-
-
+Techbros
 
 
 db.sqlite3
