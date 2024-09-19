@@ -23,12 +23,25 @@
         border-radius: 3px;
         padding: 1.5rem;
         color: white;
+        white-space: pre;
+        -webkit-overflow-scrolling: touch;
+        overflow-x: scroll;
+      }
+      code {
+        display: block;
+        background: none;
+        white-space: pre;
+        -webkit-overflow-scrolling: touch;
+        overflow-x: scroll;
+        max-width: 100%;
+        min-width: 100px;
+        padding: 0;
       }
     </style>
     
   </head>
   <body id="body" hx-headers='{"X-CSRFToken": "{{ csrf_token }}"}' class="mr-1 scroll-mr-3 dark:bg-dark-mode-color">
-    <header class=" p-[1.4rem] mt-[1.3rem] lg:w-[57%] lg:m-auto ">
+    <header class=" p-[1.4rem] mt-[1.3rem] lg:w-[57%] lg:m-auto dark:bg-form-bg-color">
       <div>
         <div class="flex justify-center items-center">
           
@@ -37,9 +50,9 @@
       </div>
       <nav>
         <ul class="w-[100%] flex justify-between mt-3" hx-boost="true">
-          <li><a href="{% url 'index' %}" class="font-extrabold max-w-[100%] text-light-mode-text dark:text-secondary-color"><img src="{% static 'images/home.svg' %}" alt="HOME" style="max-width: 100%;"/>HOME</a></li>
-          <li><a href="{% url 'blog' %}" class="font-extrabold max-w-[100%] text-light-mode-text dark:text-secondary-color">BLOG</a></li>
-          <li><a href="{% url 'about' %}" class="font-extrabold max-w-[100%]"><img src="{% static 'images/github.svg' %}" alt="GITHUB" width="48" height="48" style="max-width: 100%;">GIT</a></li>
+          <li><a href="{% url 'index' %}" class="font-extrabold max-w-[100%] text-light-mode-text dark:text-white"><img src="{% static 'images/home.svg' %}" alt="HOME" style="max-width: 100%;"/>HOME</a></li>
+          <li><a href="{% url 'blog' %}" class="font-extrabold max-w-[100%] text-light-mode-text dark:text-white">BLOG</a></li>
+          <li><a href="{% url 'about' %}" class="font-extrabold max-w-[100%] dark:text-white"><img src="{% static 'images/github.svg' %}" alt="GITHUB" width="48" height="48" style="max-width: 100%;">GIT</a></li>
         </ul>
         <div>
           

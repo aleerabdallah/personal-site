@@ -8,10 +8,11 @@
   <!-- imperfect-coder -->
   <div class="lg:w-[65%] w-full mb-[1rem]">
     <h2 class="text-3xl">BLOG</h2>
-    <p class="mt-[2rem] text-abdo-color dark:text-paragraphs-dark-mode" style="font-family: Roboto, sans-serif;">It is very important for the customer to pay attention to the adipiscing process. Ours, indeed in? From the way we lead him, he is expedient, with the pleasure of life and flight, who here is something of the kind, rather than the labor of refusing us.</p>
+    <!-- <p class="mt-[2rem] text-abdo-color dark:text-paragraphs-dark-mode" style="font-family: Roboto, sans-serif;">It is very important for the customer to pay attention to the adipiscing process. Ours, indeed in? From the way we lead him, he is expedient, with the pleasure of life and flight, who here is something of the kind, rather than the labor of refusing us.</p> -->
   </div>
 
-  <hr class="mb-12">
+  <!-- <hr class="mb-12"> -->
+  <hr class="mb-[2rem] h-px my-8 bg-gray-200 border-0 dark:bg-gray-700">
 
   <div class="grid md:grid-cols-3 grid-cols-1 lg:gap-20 md:gap-8 gap-y-10"> 
     <!-- POSTS -->
@@ -19,15 +20,16 @@
     <div class="col-span-2">
       {% for post in posts %}
 
-      <article class="mb-6 border-b-[2px] pb-3" hx-boost="true">
+      <article class="mb-6 pb-3" hx-boost="true">
         <a href="{{post.get_absolute_url}}">
-          <h2 style="font-family: Cormorant Garamond, Times, serif;" class="md:text-2xl lg:text-3xl pb-3 font-bold">{{post.title}}</h2>
+          <h2 style="font-family: Cormorant Garamond, Times, serif;" class="md:text-2xl lg:text-3xl pb-3 font-bold dark:text-primary-color">{{post.title}}</h2>
           <p class="text-abdo-color dark:text-paragraphs-dark-mode">{{post.description | truncatewords:40}}</p>
           <div class="mt-4">
-            <p class="text-sm font-bold text-gray-600 flex items-center"><span> <img src="{% static 'play/images/icons8-date-48.png' %}" alt="" class="w-[30px]"> </span> {{post.updated_on | date}}</p>
+            <p class="text-sm font-bold text-gray-600 flex items-center dark:text-secondary-color"><span class="mr-4"> <img src="{% static 'play/images/icons8-date-48.png' %}" alt="" class="w-[30px]"> </span> {{post.updated_on | date}}</p>
           </div>
         </a>
       </article>
+      <hr class="mb-[2rem] h-px my-8 bg-gray-200 border-0 dark:bg-gray-700">
       {% endfor %}
     </div>
 

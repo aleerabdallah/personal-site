@@ -14,11 +14,13 @@
       <div class="flex items-center">
         <span class="font-light filter-none invert-0 text-2xl mr-4"><img src="{% static 'play/images/icons8-date-48.png' %}" alt="" class="w-[30px]"></span> 
         <span class="font-bold text-abdo-color-light dark:text-secondary-color">{{post.updated_on | date}}</span>
-      </div> </div>
+      </div> 
+    </div>
       <div style="display: none;" class="flex flex-col"> 
         <span class="text-sm font-light">AUTHOR</span>  <span class="font-bold">{{post.author}}</span>
       </div> 
-    <hr class="m-[15px] ml-0 mt-[15px] border-1.9 mb-2 md:mb-0 lg:border-gray-400">
+    <!-- <hr class="m-[15px] ml-0 mt-[15px] border-1.9 mb-2 md:mb-0 lg:border-gray-400"> -->
+    <hr class="mb-[2rem] h-px my-8 bg-gray-200 border-0 dark:bg-gray-700">
 <!--     <div class="image-wrapper rounded-md">
       <img src="{{post.get_image_url}}" class="img rounded-[15px]" />
     </div> -->
@@ -28,6 +30,7 @@
   <div class="px-[1rem] col-span-7 lg:col-start-1 lg:row-start-1 lg:col-end-2 md:row-start-2 md:col-start-2 md:col-span-4 lg:pl-[3rem] lg:fixed lg:left-0 lg:max-w-[24%] ">
     {% if toc_links %}
       <p class="mb-5 md:text-3xl lg:text-xl lg:font-sans lg:font-semibold dark:text-secondary-color">Table of Contents</p>
+      <hr class="h-px my-8 bg-gray-200 border-0 dark:bg-gray-700">
       <menu class="pl-[3rem] md:pl-[3rem] lg:pl-0">
         {% for heading in toc_links %}
         <li class="p-0 hover:bg-slate-800 hover:text-white border-1 rounded-[10px]"><a href="#{{heading.id}}" class="block w-[100%] lg:text-[14px] lg:mb-3 text-black dark:text-lime-50">{{heading.text}}</a></li>
@@ -44,7 +47,7 @@
     <p  class="mb-[1.5em] font-mono sm:text-2xl md:text-3xl lg:text-4xl text-abdo-color">{{post.body|safe}}</p>
     <div class="mt-[1rem]">
       <!-- SUBSCRIPTION SECTION -->
-      <div class="border-2 border-slate-400 mb-[8rem] rounded-md dark:bg-dark-mode-color">
+      <div class="border-[1px] border-slate-400 mb-[8rem] rounded-md dark:bg-form-bg-color">
         <!-- style="background-color: #f7f6f6;" -->
         <form action="{% url 'blog' %}" method="post" class="mt-[3rem]">
           {% csrf_token %}
@@ -65,18 +68,20 @@
         </form>
       </div>
       <h3 class="font-bold text-[1.8rem] related-posts dark:text-secondary-color">Related Posts</h3>
-      <hr class="mt-3 bg-blue-700">
+      <!-- <hr class="mt-3 bg-blue-700"> -->
+      <hr class="mb-[2rem] h-px my-8 bg-gray-200 border-0 dark:bg-gray-700">
       <div hx-boost="true" class="mt-9">
         {% for related_post in related_posts %}
-          <div class="mb-5 border-b-[2px] pb-6">
+          <div class="mb-5 pb-6">
             <a href="{{related_post.get_absolute_url}}">
               <h2 style="font-family: Cormorant Garamond, Times, serif;" class="text-[1.7rem] pb-3  text-abdo-color-dark dark:text-lime-50">{{related_post.title}}</h2>
-              <p style="font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;" class="text-abdo-color">{{related_post.description}}</p>
+              <p style="font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;" class="text-abdo-color dark:text-paragraphs-dark-mode">{{related_post.description}}</p>
             </a>
             <div class="mt-4">
               <p class="text-sm font-bold text-gray-600 dark:text-secondary-color">{{post.updated_on|naturalday}}</p>
             </div>
           </div>
+          <hr class="mb-[2rem] h-px my-8 bg-gray-200 border-0 dark:bg-gray-700">
           
         {% endfor %}
       </div>
@@ -86,6 +91,7 @@
 {% endblock %}
 
 
+<!-- =============Everything below is not consider cause it's not inside block======================== -->
 
 
 
@@ -116,7 +122,8 @@
       <div>
         <h1 style="font-family: serif" class="pt-5 font-bold lg: text-5xl">{{post.title}}</h1>
         <div class="flex gap-2 mt-10"> <div style="display: none;" class="flex flex-col"> <span class="text-sm font-light">AUTHOR</span>  <span class="font-bold">{{post.author}}</span></div> <div class="flex flex-col"><span class="text-sm font-light">PUBLISHED</span> <span class="font-bold text-abdo-color-light">{{post.updated_on}}</span></div> </div>
-        <hr class="m-[15px] ml-0 mt-[15px] border-1.9 mb-2 md:mb-0">
+        <!-- <hr class="m-[15px] ml-0 mt-[15px] border-1.9 mb-2 md:mb-0"> -->
+        <hr class="mb-[2rem] h-px my-8 bg-gray-200 border-0 dark:bg-gray-700">
         <!-- <div class="image-wrapper rounded-md">
           <img src="{{post.get_image_url}}" class="img rounded-[15px]" />
         </div> -->
@@ -137,7 +144,8 @@
       <!-- RELATED POSTS -->
       <div class="mt-[6rem]">
         <h3 class="font-bold text-[1.8rem]">Related Posts</h3>
-        <hr class="mb-7 mt-3">
+        <!-- <hr class="mb-7 mt-3"> -->
+        <hr class="mb-[2rem] h-px my-8 bg-gray-200 border-0 dark:bg-gray-700">
         <div hx-boost="true">
           {% for related_post in related_posts %}
             <div class="mb-5 border-b-[2px] pb-6">
@@ -169,7 +177,8 @@
   <div class="m-auto rounded-t-lg  border-x-[0px] border-t-[0px] p-[1rem] border-solid p-x-[1rem] pt-[1rem] pb-0 sm:w-full sm:p-6 md:w-[80%] md:pb-0">
     <h1 style="font-family: serif" class="pt-5 font-bold lg: text-5xl">{{post.title}}</h1>
     <div class="flex gap-2 mt-10"> <div style="display: none;" class="flex flex-col"> <span class="text-sm font-light">AUTHOR</span>  <span class="font-bold">{{post.author}}</span></div> <div class="flex flex-col"><span class="text-sm font-light">PUBLISHED</span> <span class="font-bold text-abdo-color-light">{{post.updated_on | naturalday}}</span></div> </div>
-    <hr class="m-[15px] ml-0 mt-[15px] border-1.9 mb-2 md:mb-0">
+    <!-- <hr class="m-[15px] ml-0 mt-[15px] border-1.9 mb-2 md:mb-0"> -->
+    <hr class="mb-[15px] h-px my-8 bg-gray-200 border-0 dark:bg-gray-700">
     <!-- <div class="image-wrapper rounded-md">
       <img src="{{post.get_image_url}}" class="img rounded-[15px]" />
     </div> -->
@@ -181,6 +190,7 @@
     <div class="m-auto rounded-t-lg  border-l-[1px] border-t-[0px] p-[1rem] border-solid p-x-[1rem] pt-[1rem] pb-0 sm:w-full sm:p-6 md:w-[80%] md:pb-0 lg:left-0 lg:float-left lg:w-[20%] lg:sticky lg:z-0 lg:top-[8rem] sm:p-l-[2rem]">
       {% if toc_links %}
       <p class="mb-5 text-3xl">Table of Contents</p>
+      <hr class="mb-[2rem] h-px my-8 bg-gray-200 border-0 dark:bg-gray-700">
       {% for heading in toc_links %}
         <ul class="pl-[3rem] lg:pl-[1rem]">
           <li class="list-disc"><a href="#{{heading.id}}">{{heading.text}}</a></li>
@@ -196,10 +206,11 @@
       <!-- RELATED POSTS -->
       <div class="mt-[6rem]">
         <h3 class="font-bold text-[1.8rem]">Related Posts</h3>
-        <hr class="mb-7 mt-3">
+        <!-- <hr class="mb-7 mt-3"> -->
+        <hr class="mb-[2rem] h-px my-8 bg-gray-200 border-0 dark:bg-gray-700">
         <div hx-boost="true">
           {% for related_post in related_posts %}
-            <div class="mb-5 border-b-[2px] pb-6">
+            <div class="mb-5 pb-6">
               <a href="{{related_post.get_absolute_url}}">
                 <h2 style="font-family: Cormorant Garamond, Times, serif;" class="text-[1.7rem] pb-3  text-abdo-color-dark">{{related_post.title}}</h2>
                 <p style="font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;" class="text-abdo-color ">{{related_post.description}}</p>
@@ -207,7 +218,9 @@
               <div class="mt-4">
                 <p class="text-sm font-bold text-gray-600">{{post.updated_on|naturalday}}</p>
               </div>
+              
             </div>
+            <hr class="mb-[2rem] h-px my-8 bg-gray-200 border-0 dark:bg-gray-700">
             
           {% endfor %}
         </div>
@@ -276,7 +289,8 @@
   <!-- {% endfor %} -->
   <div class="mt-[6rem]">
     <h3 class="font-bold text-[1.8rem]">Related Posts</h3>
-    <hr class="mb-7 mt-3">
+    <!-- <hr class="mb-7 mt-3"> -->
+    <hr class="mb-[2rem] h-px my-8 bg-gray-200 border-0 dark:bg-gray-700">
     <div hx-boost="true">
       {% for related_post in related_posts %}
         <div class="mb-5 border-b-[2px] pb-6">
@@ -299,6 +313,7 @@
   <h1 style="font-family: Cormorant Garamond, Times, serif;" class="pt-5 font-medium lg: text-5xl">{{post.title}}</h1>
   <div class="flex gap-2 mt-10"> <div style="display: none;" class="flex flex-col "> <span class="text-sm font-light">AUTHOR</span>  <span class="font-bold">{{post.author}}</span></div> <div class="flex flex-col"><span class="text-sm font-light">PUBLISHED</span> <span class="font-bold text-abdo-color-light">{{post.updated_on | naturalday}}</span></div> </div>
   <hr class="m-[15px] ml-0 mt-[15px] border-1.9 mb-8">
+  <hr class="mb-[2rem] h-px my-8 bg-gray-200 border-0 dark:bg-gray-700">
   <div class="image-wrapper rounded-md">
     <img src="{{post.get_image_url}}" class="img rounded-[15px]" />
   </div>
@@ -308,6 +323,7 @@
   <div class="bg-gray-500 md:col-span-2 md:fixed">
     <div class="sm:w-full sm:p-6  mt-[2rem] border-[1px] border-solid rounded-md p-[1rem]">
       <p class="text-2xl mb-5">Table of Content</p>
+      
       {% for heading in toc_links %}
         <ol>
           <li><a href="#{{heading.id}}">{{heading.text}}</a></li>
